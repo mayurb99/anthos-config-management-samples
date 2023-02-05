@@ -16,6 +16,25 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx
+        image: us-central1-docker.pkg.dev/proj-setup/anthos/anthos:latest
         ports:
         - containerPort: 80
+        imagePullPolicy: Always
+        
+        
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: nginx
+
+
+
