@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: us-central1-docker.pkg.dev/proj-setup/anthos/anthos:latest
+        image: us-central1-docker.pkg.dev/proj-setup/anthos/anthos
         ports:
         - containerPort: 80
         imagePullPolicy: Always
