@@ -18,8 +18,11 @@ spec:
       - name: nginx
         image: us-central1-docker.pkg.dev/proj-setup/anthos/anthos
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         imagePullPolicy: Always
+        env:
+          - name: PORT
+            value: "8080"        
         
         
 ---
@@ -32,7 +35,7 @@ spec:
   type: LoadBalancer
   ports:
   - port: 80
-    targetPort: 80
+    targetPort: 8080
   selector:
     app: nginx
 
